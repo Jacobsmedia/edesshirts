@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Edes Shirts Manufacturing Process</title>
+    <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@300;400;500;600;700&family=Wix+Madefor+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Avenir', 'Wix Madefor Display', sans-serif;
+            line-height: 1.5;
+            color: #000;
+            background-color: #fff;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a365d;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #1a365d;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: url('https://static.wixstatic.com/media/91f686_40226faeaddd412982885a5767c7a2a8~mv2.jpg/v1/fill/w_1919,h_510,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/91f686_40226faeaddd412982885a5767c7a2a8~mv2.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #000;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Wix Madefor Display', sans-serif;
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        /* Process Section */
+        .process-intro {
+            padding: 5rem 0 3rem;
+            text-align: center;
+        }
+
+        .process-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #1a365d;
+            margin-bottom: 2rem;
+        }
+
+        .process-intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .steps-overview {
+            padding: 3rem 0;
+            background: #f8f9fa;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #1a365d;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        /* Detailed Process Steps */
+        .process-details {
+            padding: 5rem 0;
+        }
+
+        .process-step {
+            margin-bottom: 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .process-step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .process-step:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .step-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-content .step-number-large {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #1a365d;
+            opacity: 0.3;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .step-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .step-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .step-1 { background-image: url('https://pixabay.com/get/gbceb9996ddf920afda978058c244cf4078382a323e3330b09627ca79057ede9c49c6880ad3eb670103cea32ab0fad3af16ce1a7f9c52b2758f172be451e8d028_1280.jpg'); }
+        .step-2 { background-image: url('https://pixabay.com/get/g78338ff5693dd1bdce3fb6c7477df0673ba637924986d997ed869af809c6a6c166d062998772baa4b683194e28d694ce088f2fd0e74761cf3561526004f6c6d8_1280.jpg'); }
+        .step-3 { background-image: url('https://pixabay.com/get/g62ffd257aa2d1ae1051cdaa93ce69b32757423168ded8c98c8ad53c804466b20da24fbcd1a8c1302d7f501146fd9dc0fc23d09420ec7c221dbbe961a156d7e5a_1280.jpg'); }
+        .step-4 { background-image: url('https://pixabay.com/get/g5f837703a13e58b9117f7b051db7100d1aacc388aedad5461023991cf1b40c21abdb34db19a2f52a22af6619e183c5a5edd359e8afec4ecab467e1388b62d996_1280.jpg'); }
+        .step-5 { background-image: url('https://pixabay.com/get/g4e108d83a8ad33e046d1aad8702162748375a6a32acb5d8dead2131865476a615ba38571ca2f5418babf0b4df6ecb0296b005f7cbb339084a233e994e4ba6ae3_1280.jpg'); }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #1a365d;
+        }
+
+        .feature-item h4 {
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #1a365d;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: white;
+            color: #1a365d;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: #cbd5e0;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #4a5568;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #1a365d;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .process-step:nth-child(even) {
+                direction: ltr;
+            }
+
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">EDES SHIRTS</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>THE PROCESS</h1>
+            </div>
+        </section>
+
+        <section class="process-intro">
+            <div class="container">
+                <h2>Manufacturing Excellence</h2>
+                <p>From conception to completion, the shirts we produce embody our craftsmanship and steadfast dedication. At EDES, each product is expertly crafted to exude sophistication and refinement. Discover the essence of quality, comfort, and distinctive elegance.</p>
+            </div>
+        </section>
+
+        <section class="steps-overview">
+            <div class="container">
+                <h3 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; color: #1a365d; margin-bottom: 3rem;">STEPS</h3>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <h3>Cutting & Preparation</h3>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <h3>Sewing & Assembly</h3>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <h3>Quality Control</h3>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <h3>Finishing Touches</h3>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">05</div>
+                        <h3>Packaging & Delivery</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-details">
+            <div class="container">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-content">
+                        <div class="step-number-large">01</div>
+                        <h2>Cutting and Preparation</h2>
+                        <p>Our manufacturing process begins with precise fabric cutting and preparation. Using state-of-the-art cutting machinery and traditional techniques, we ensure each piece is cut to exact specifications. Our experienced team carefully inspects fabrics for quality and consistency before the cutting process begins.</p>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <h4>Precision Cutting</h4>
+                                <p>Computer-aided cutting ensures accuracy and minimal waste</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Quality Fabrics</h4>
+                                <p>Only premium materials selected for durability and comfort</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-image step-1"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-content">
+                        <div class="step-number-large">02</div>
+                        <h2>Sewing and Assembly</h2>
+                        <p>Our skilled craftspeople bring decades of experience to the sewing process. Each shirt is carefully assembled using high-quality threads and precise stitching techniques. We maintain traditional craftsmanship while utilizing modern sewing technology for consistency and durability.</p>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <h4>Expert Craftsmanship</h4>
+                                <p>Skilled artisans with up to 50 years of experience</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Reinforced Stitching</h4>
+                                <p>Double-stitched seams for enhanced durability</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-image step-2"></div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-content">
+                        <div class="step-number-large">03</div>
+                        <h2>Quality Control</h2>
+                        <p>Every shirt undergoes rigorous quality control inspection at multiple stages. Our quality assurance team checks for stitching consistency, fabric integrity, sizing accuracy, and overall construction quality. Only shirts that meet our exacting standards proceed to the next stage.</p>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <h4>Multi-Stage Inspection</h4>
+                                <p>Comprehensive quality checks at every production phase</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Sizing Accuracy</h4>
+                                <p>Precise measurements to ensure perfect fit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-image step-3"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-content">
+                        <div class="step-number-large">04</div>
+                        <h2>Final Touches</h2>
+                        <p>The finishing process includes pressing, button attachment, label application, and final detailing. Our attention to detail ensures each shirt has a professional appearance and premium feel. Special care is taken with collar shaping and cuff finishing for that perfect business look.</p>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <h4>Professional Pressing</h4>
+                                <p>Steam pressing for crisp, professional appearance</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Premium Details</h4>
+                                <p>Quality buttons and refined finishing touches</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-image step-4"></div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="process-step">
+                    <div class="step-content">
+                        <div class="step-number-large">05</div>
+                        <h2>Packaging and Delivery</h2>
+                        <p>Completed shirts are carefully packaged using protective materials to ensure they arrive in perfect condition. We coordinate with reliable logistics partners to ensure timely delivery to our clients worldwide. Each package is tracked and monitored throughout the shipping process.</p>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <h4>Protective Packaging</h4>
+                                <p>Careful packaging to maintain quality during transit</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Global Shipping</h4>
+                                <p>Reliable delivery to clients worldwide</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-image step-5"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Start Your Order?</h2>
+                <p>Experience our premium manufacturing process for your brand. Contact us today to discuss your requirements and get a customized quote.</p>
+                <a href="mailto:sales@edesshirts.com?subject=INQUIRY" class="cta-button">Get Quote</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Phone: <a href="tel:+355697914369">+355697914369</a></p>
+                    <p>General inquiries: <a href="mailto:info@edesshirts.com?subject=INFO">info@edesshirts.com</a></p>
+                    <p>Collaboration requests: <a href="mailto:sales@edesshirts.com?subject=INQUIRY">sales@edesshirts.com</a></p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/p/Edes-shpk-100066936587246/" aria-label="Facebook">📘</a>
+                        <a href="https://www.linkedin.com/company/edes-shpk" aria-label="LinkedIn">💼</a>
+                        <a href="https://www.instagram.com/edes_lab/" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Address</h3>
+                    <p>Bulevardi Gjergj Fishta<br>ND. 58, 1023<br>Tirane, Albania</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Opening Hours</h3>
+                    <p>Mon - Fri: 7:00 am – 4:00 pm</p>
+                    <p>Saturday: 9:00 am – 3:00 pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Edes Shirts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

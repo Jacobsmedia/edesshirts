@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Edes Shirts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@300;400;500;600;700&family=Wix+Madefor+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Avenir', 'Wix Madefor Display', sans-serif;
+            line-height: 1.5;
+            color: #000;
+            background-color: #fff;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Wix Madefor Display', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 400;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #666;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: url('https://static.wixstatic.com/media/nsplsh_6a4e4b7634516f68416b30~mv2_d_6040_4031_s_4_2.jpg/v1/fill/w_1919,h_510,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/nsplsh_6a4e4b7634516f68416b30~mv2_d_6040_4031_s_4_2.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #000;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Wix Madefor Display', sans-serif;
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #1a365d;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .manifesto {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .manifesto h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #1a365d;
+            margin-bottom: 2rem;
+        }
+
+        .manifesto p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .company-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(rgba(26, 54, 93, 0.3), rgba(26, 54, 93, 0.3)),
+                        url('https://pixabay.com/get/g8fa9c2f2ea11226616ccfa298ee8a9d77494b712ee66998f591d7d139d80b33c838266dc075a70de174cca986ebea032da55a13114c73f1c04a6490007563e3c_1280.jpg') center/cover;
+            border-radius: 10px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-left: 4px solid #1a365d;
+        }
+
+        .highlight-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .highlight-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .stats {
+            background: #1a365d;
+            color: white;
+            padding: 3rem 0;
+            border-radius: 10px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: #cbd5e0;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #4a5568;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #1a365d;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .manifesto {
+                padding: 2rem;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">EDES SHIRTS</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>ABOUT</h1>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <h2>Our Story</h2>
+                    
+                    <div class="manifesto">
+                        <h3>Manifesto</h3>
+                        <p>At EDES LLC, our journey began around 3 decades ago as a family business in the heart of Albania. Our founders envisioned creating a manufacturing company dedicated to producing medium to high-quality men's shirts, setting the foundation for what would become a trademark of excellence in the industry. Since our inception in 1998, we have been faithful in our commitment to prevail the art of making shirts and project management, in order to deliver a product and a service that not only meets but exceeds expectations.</p>
+
+                        <p>Our factory, strategically located to leverage both location and global tendency, is equipped with superior machinery and staffed with a highly-proficient team that has up to 50 years of working experience in the sector. These assets ensure that we meet the demands of our clients without ever compromising on quality. Each piece we produce is proof to our promise.</p>
+
+                        <p>Specialising in private label manufacturing, we offer customised solutions tailored to the client's needs. This method has enabled us to build a rich portfolio of over 1,000 brands, that we call our most valuable patchwork project.</p>
+
+                        <p>At EDES, we are more than a manufacturer; we are partners in your success. We believe in building long-term relationships with our clients, cherishing each collaboration, and driving mutual growth.</p>
+
+                        <p>As we look to the future, our guiding principles remain rooted in our past. We continue to sew together decades of work, passion, and practice, with our favourite threads being the understanding of our clients' needs and attention to detail. We remain open to new talents and partnerships, embracing the belief that "there is nothing in this world that cannot be improved."</p>
+                    </div>
+
+                    <div class="company-image"></div>
+
+                    <div class="stats">
+                        <div class="container">
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <h3>1998</h3>
+                                    <p>Year Founded</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h3>1,000+</h3>
+                                    <p>Brands Served</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h3>30,000</h3>
+                                    <p>Monthly Capacity</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h3>50+</h3>
+                                    <p>Years Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlights">
+                        <div class="highlight-card">
+                            <h4>Family Business Heritage</h4>
+                            <p>Founded as a family business with traditional values and modern manufacturing capabilities.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h4>Strategic Location</h4>
+                            <p>Located in Albania, perfectly positioned to serve European and global markets efficiently.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h4>Expert Team</h4>
+                            <p>Highly skilled professionals with decades of experience in shirt manufacturing and quality control.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h4>Innovation Focus</h4>
+                            <p>Continuously improving processes and embracing new technologies while maintaining craftsmanship traditions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Phone: <a href="tel:+355697914369">+355697914369</a></p>
+                    <p>General inquiries: <a href="mailto:info@edesshirts.com?subject=INFO">info@edesshirts.com</a></p>
+                    <p>Collaboration requests: <a href="mailto:sales@edesshirts.com?subject=INQUIRY">sales@edesshirts.com</a></p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/p/Edes-shpk-100066936587246/" aria-label="Facebook">📘</a>
+                        <a href="https://www.linkedin.com/company/edes-shpk" aria-label="LinkedIn">💼</a>
+                        <a href="https://www.instagram.com/edes_lab/" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Address</h3>
+                    <p>Bulevardi Gjergj Fishta<br>ND. 58, 1023<br>Tirane, Albania</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Opening Hours</h3>
+                    <p>Mon - Fri: 7:00 am – 4:00 pm</p>
+                    <p>Saturday: 9:00 am – 3:00 pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Edes Shirts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
