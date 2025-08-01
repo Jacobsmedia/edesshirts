@@ -11,11 +11,12 @@
         h1, h2, h3 {font-family:'Heebo', sans-serif; font-weight:500;}
         .container{max-width:1200px;margin:0 auto;padding:0 20px;}
         header{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);position:fixed;top:0;left:0;right:0;z-index:1000;border-bottom:1px solid #e5e5e5;}
-        nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;}
+        nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;position:relative;}
         .logo{font-family:'Heebo',sans-serif;font-size:1.5rem;font-weight:600;color:#000;text-decoration:none;letter-spacing:0.05em;}
         .nav-links{display:flex;list-style:none;gap:2rem;}
         .nav-links a{text-decoration:none;color:#000;font-size:14px;transition:color 0.3s ease;}
         .nav-links a:hover{color:#666;}
+        .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;right:20px;background:#fff;padding:1rem;gap:1rem;box-shadow:0 0 10px rgba(0,0,0,0.1);}
         main{padding-top:100px;}
         .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;padding:2rem 0;}
         .step-card{text-align:center;padding:2rem;border-radius:10px;background:#f8f9fa;box-shadow:0 5px 20px rgba(0,0,0,0.1);}
@@ -101,5 +102,6 @@
         </div>
     </div>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
