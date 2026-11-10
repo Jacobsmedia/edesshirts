@@ -3,15 +3,19 @@ os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 IT=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'it.json')))
 pages=['index.html','about.html','services.html','gallery.html','uniforms.html','contact.html','privacy.html']
 DOMAIN='https://edesshirts.com/'
+# Link previews (WhatsApp, LinkedIn...) must point at an address that serves this site.
+# Until edesshirts.com is moved to Cloudflare it still shows the old Wix site, so use pages.dev.
+# After the domain switch, set OG_DOMAIN = DOMAIN and rebuild.
+OG_DOMAIN='https://edes-website.pages.dev/'
 def switch(p,cur,prefix_en,prefix_it,label):
     en=f'<a href="{prefix_en}{p}" lang="en" hreflang="en"'+(' aria-current="true"' if cur=='en' else '')+'>EN</a>'
     it=f'<a href="{prefix_it}{p}" lang="it" hreflang="it"'+(' aria-current="true"' if cur=='it' else '')+'>IT</a>'
     return f'<span class="lang-switch" role="group" aria-label="{label}">{en}{it}</span>'
 
-def url(p,lang):
+def url(p,lang,base=None):
     # Cloudflare Pages serves /about for about.html, so public URLs drop .html
     path='' if p=='index.html' else p[:-5]
-    return DOMAIN+('it/' if lang=='it' else '')+path
+    return (base or DOMAIN)+('it/' if lang=='it' else '')+path
 def seo(p,lang,s):
     """Canonical, hreflang, icons and link-preview tags, between <!-- seo --> markers."""
     s=re.sub(r'<!-- seo -->.*?<!-- /seo -->\n','',s,flags=re.S)
@@ -31,10 +35,11 @@ def seo(p,lang,s):
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="EDES Shirts">
 <meta property="og:locale" content="{'it_IT' if lang=='it' else 'en_GB'}">
-<meta property="og:url" content="{url(p,lang)}">
+<meta property="og:url" content="{url(p,lang,OG_DOMAIN)}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:image" content="{DOMAIN}images/og-image.jpg">
+<meta property="og:image" content="{OG_DOMAIN}images/og-image.jpg">
+<meta property="og:image:alt" content="EDES shirt factory in Tirana: CMT Shirt Manufacturing for Private Label">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
