@@ -1,7 +1,7 @@
 import re,json,os,html
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 IT=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'it.json')))
-pages=['index.html','about.html','services.html','gallery.html','uniforms.html','contact.html']
+pages=['index.html','about.html','services.html','gallery.html','uniforms.html','contact.html','privacy.html']
 DOMAIN='https://edesshirts.com/'
 def switch(p,cur,prefix_en,prefix_it,label):
     en=f'<a href="{prefix_en}{p}" lang="en" hreflang="en"'+(' aria-current="true"' if cur=='en' else '')+'>EN</a>'

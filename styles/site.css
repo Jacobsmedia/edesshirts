@@ -579,3 +579,8 @@ a { color: var(--ink); }
 @media (min-width: 1100px) and (max-width: 1279px) { .nav .end { gap: 16px; } }
 
 /* Gallery filter sticks right under the nav, whatever its height */
+
+/* Privacy notice */
+.plist { margin: var(--s-4) 0; padding-left: 1.2em; display: grid; gap: var(--s-2); }
+.pv-updated { font-size: var(--fs-detail); color: var(--muted); }
+.footer .legal-link { margin-left: var(--s-3); color: inherit; text-underline-offset: 3px; }
