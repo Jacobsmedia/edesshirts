@@ -1,0 +1,100 @@
+/* EDES gallery: raw phone photos, curated by stage.
+   Photos keep their own aspect ratio (no cropping). One grade unifies them:
+   monochrome in the grid, full colour on hover and in the viewer. */
+
+:root {
+  --shot-grade: grayscale(1) contrast(1.04);
+  --shot-radius: var(--radius-chip);
+}
+
+/* Header */
+.g-head { padding-block: var(--s-10) var(--s-8); }
+.g-head h1 {
+  grid-column: 1 / -1; max-width: 16ch;
+  font-family: var(--font-display); font-weight: var(--fw-heading);
+  font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: var(--tr-display);
+}
+.g-head .sub { grid-column: 1 / -1; max-width: 46ch; margin-top: var(--s-6); font-size: var(--fs-lead); font-weight: var(--fw-lead); }
+
+
+/* Stage filter */
+.g-filter { position: sticky; top: var(--nav-h, 53px); z-index: 15; background: var(--bg); }
+.g-filter .grid { padding-block: var(--s-3); }
+.g-filter .chips { grid-column: 1 / -1; display: flex; flex-wrap: nowrap; gap: var(--s-2); overflow-x: auto; scrollbar-width: none; }
+.g-filter .chips::-webkit-scrollbar { display: none; }
+.g-filter button {
+  flex: none; font: inherit; font-size: var(--fs-detail); line-height: 1.2; color: var(--ink);
+  padding: 8px 12px; border: 0; border-radius: var(--radius-chip); cursor: pointer;
+  background: var(--raised-solid); box-shadow: var(--shadow-chip);
+  transition: background-color .2s ease, color .2s ease;
+}
+.g-filter button sup { font-size: var(--fs-micro); color: var(--muted); margin-left: 2px; }
+.g-filter button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.g-filter button[aria-pressed="true"] sup { color: var(--silver); }
+
+/* Stage sections */
+.stage { padding-block: var(--s-9) var(--s-10); }
+.stage[hidden] { display: none; }
+.stage-head { border-top: 1px solid var(--rule-strong); padding-top: var(--s-6); margin-bottom: var(--s-9); row-gap: var(--s-3); }
+.stage-head h2 {
+  display: flex; gap: var(--s-4); align-items: baseline;
+  font-family: var(--font-display); font-weight: var(--fw-heading);
+  font-size: var(--fs-h3); line-height: var(--lh-heading); letter-spacing: var(--tr-heading);
+}
+.stage-head h2 .n { font-family: var(--font-figure); font-size: var(--fs-h4); letter-spacing: var(--tr-figure); }
+.stage-head .field p { max-width: var(--measure); color: var(--muted); }
+
+/* Shots: staggered on the page grid, never cropped */
+.shots { row-gap: var(--s-10); align-items: start; }
+.shot { grid-column: 1 / -1; margin: 0; }
+.shot .idx { display: block; margin-bottom: var(--s-2); font-size: var(--fs-micro); line-height: 1; color: var(--muted); font-feature-settings: "tnum"; }
+.shot a { display: inline-block; max-width: 100%; vertical-align: top; border-radius: var(--shot-radius); overflow: hidden; cursor: zoom-in; }
+/* Fill the slot's width, but never taller than the screen allows: tall phone shots stay in proportion */
+.shot img { display: block; width: auto; max-width: 100%; height: auto; max-height: min(78vh, 760px); filter: var(--shot-grade); transition: filter .5s ease; background: var(--line); }
+.shot a:hover img, .shot a:focus-visible img { filter: none; }
+.shot figcaption { margin-top: var(--s-2); max-width: 40ch; font-size: var(--fs-detail); line-height: 1.4; color: var(--muted); }
+
+/* Phone: 4 cols. Full, then two narrower offsets */
+.shot:nth-child(3n+2) { grid-column: 1 / 4; }
+.shot:nth-child(3n+3) { grid-column: 2 / -1; }
+
+/* Tablet: 6 cols. Two columns, right one dropped */
+@media (min-width: 720px) {
+  .shot:nth-child(n) { grid-column: 1 / 4; }
+  .shot:nth-child(2n) { grid-column: 4 / -1; margin-top: var(--s-10); }
+}
+
+/* Desktop: 12 cols. A six-shot rhythm with gaps, like a contact sheet laid out by hand */
+@media (min-width: 1100px) {
+  .shot:nth-child(n)    { margin-top: 0; }
+  .shot:nth-child(6n+1) { grid-column: 1 / 6; }
+  .shot:nth-child(6n+2) { grid-column: 7 / 10; margin-top: var(--s-10); }
+  .shot:nth-child(6n+3) { grid-column: 10 / -1; }
+  .shot:nth-child(6n+4) { grid-column: 3 / 8; }
+  .shot:nth-child(6n+5) { grid-column: 9 / -1; margin-top: var(--s-11); }
+  .shot:nth-child(6n+6) { grid-column: 1 / 5; }
+}
+
+/* Viewer */
+.viewer {
+  width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0;
+  background: #0A0A0A; color: var(--paper);
+}
+.viewer::backdrop { background: rgba(0,0,0,.9); }
+.viewer[open] { display: grid; grid-template-rows: auto 1fr auto; }
+.viewer .v-top, .viewer .v-bottom { display: flex; justify-content: space-between; align-items: center; gap: var(--s-4); padding: var(--s-4) var(--grid-margin); font-size: var(--fs-detail); }
+.viewer .v-count { color: var(--silver); font-feature-settings: "tnum"; }
+.viewer figure { margin: 0; display: grid; place-items: center; min-height: 0; padding-inline: var(--grid-margin); }
+.viewer img { max-width: 100%; max-height: calc(100dvh - 140px); width: auto; height: auto; border-radius: var(--shot-radius); }
+.viewer .v-cap { color: var(--silver); }
+.viewer .v-cap b { color: var(--paper); font-weight: var(--fw-text); margin-right: var(--s-2); font-feature-settings: "tnum"; }
+.viewer button {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; padding: 0;
+  border: 0; border-radius: var(--radius-chip); cursor: pointer;
+  background: rgba(255,255,255,.1); color: var(--paper); transition: background-color .2s ease;
+}
+.viewer button:hover { background: rgba(255,255,255,.2); }
+.viewer button:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
+.viewer .v-nav { display: flex; gap: var(--s-2); }
+
+@media (prefers-reduced-motion: reduce) { .shot img { transition: none; } }

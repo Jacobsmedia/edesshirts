@@ -1,0 +1,132 @@
+/* EDES Shirts: design tokens (draft v3, industrial B2B)
+   Concept: "The production sheet". The site reads like a factory work order:
+   a left rail of field names, content in a wide right field, real figures
+   stated plainly. Monochrome palette; type follows sequencehq.com, buttons baseline.agency. */
+
+@import url("fonts.css");
+
+:root {
+  /* ---------- Colour: monochrome (ref: baseline.agency) ---------- */
+  --grey:   #E0E0E0; /* page background */
+  --paper:  #FFFFFF; /* sheets, cards, fields, button reveal */
+  --ink:    #000000; /* text, primary buttons, dark bands */
+  --muted:  #5E5E5E; /* secondary text: 4.9:1 on grey, 6.5:1 on paper */
+  --silver: #A3A3A3; /* secondary text on black (8.3:1), demo fills */
+  --line:   #C4C4C4; /* hairlines between rows */
+
+  --text:       var(--ink);
+  --text-muted: var(--muted);
+  --bg:         var(--grey);
+  --surface:    var(--paper);
+  --rule:       var(--line);
+  --rule-strong:var(--line);  /* section dividers: quiet, like the footer line */
+  --action:     var(--ink);
+  --focus:      var(--ink);
+
+  /* ---------- Type (ref: sequencehq.com) ----------
+     Sequence uses Moderat Serif Light + TWK Lausanne (both paid licences).
+     Free stand-ins below; to use the originals, license them and put their
+     names first in each stack. */
+  --font-display: "Literata", "Moderat Serif", Georgia, serif;        /* headings, light */
+  --font-text:    "Hanken Grotesk", "TWK Lausanne", "Helvetica Neue", Arial, sans-serif; /* body, UI, details, figures */
+  --font-detail:  var(--font-text);
+  --font-figure:  var(--font-text);
+
+  --fw-heading: 300;  --fw-lead: 300;  --fw-text: 400;  --fw-strong: 500;
+
+  /* Scale */
+  --fs-caption: 0.8125rem;                           /* 13 */
+  --fs-small:   0.875rem;                            /* 14 */
+  --fs-body:    1rem;                                /* 16 */
+  --fs-lead:    1.125rem;                            /* 18 */
+  --fs-h4:      1.375rem;                            /* 22 */
+  --fs-h3:      clamp(1.5rem, 1.3rem + .6vw, 1.75rem);   /* 28 */
+  --fs-h2:      clamp(1.875rem, 1.4rem + 1.5vw, 2.5rem);  /* 40 */
+  --fs-h1:      clamp(2.25rem, 1.4rem + 2.8vw, 3.5rem);   /* 56 */
+  --fs-display: clamp(2.75rem, 1.5rem + 4vw, 4.5rem);     /* 72 */
+  --fs-hero:    clamp(3rem, 1.2rem + 6vw, 6rem);          /* 96 */
+  --fs-detail:  0.875rem;                                  /* 14: nav, labels */
+  --fs-micro:   0.75rem;                                   /* 12: counts, index numbers */
+  --fs-fig-sm:  2rem;                                      /* 32 figure */
+  --fs-fig:     clamp(3rem, 1.6rem + 4vw, 4rem);          /* 64 figure */
+
+  /* Tracking: serif headings slightly tight, sans neutral, big figures tight */
+  --tr-display: -0.025em;
+  --tr-heading: -0.02em;
+  --tr-body:    0;
+  --tr-ui:      0;
+  --tr-figure:  -0.035em;
+  --tr-detail:  0;
+
+  --lh-display: 1.05;
+  --lh-heading: 1.1;
+  --lh-figure:  1;
+  --lh-detail:  1.4;
+  --lh-text:    1.5;
+  --measure:    60ch;
+
+  /* ---------- Space: 4px base ---------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px;
+  --s-7: 32px; --s-8: 40px; --s-9: 56px; --s-10: 80px; --s-11: 120px;
+
+  /* ---------- Grid ---------- */
+  --grid-max:    1440px;
+  --grid-cols:   4;
+  --grid-gutter: 16px;
+  --grid-margin: 20px;
+  /* The rail: field-name column of the production sheet */
+  --rail:        1 / -1;   /* phone: rail stacks above content */
+  --field:       1 / -1;
+
+  /* ---------- Icons (Lucide, icons/sprite.svg) ---------- */
+  --icon-sm: 16px;   /* inline with 14px detail text */
+  --icon-md: 20px;   /* inline with body text */
+  --icon-lg: 28px;   /* capability and step markers */
+  --icon-stroke: 1.5; /* lighter than Lucide's default 2, to sit with the light serif */
+
+  /* ---------- Elevation (bento cards) ---------- */
+  /* Radii step on the 4px base: card 12, inner 8, chip 6 */
+  --radius-card:  12px;
+  --radius-inner: 8px;
+  --radius-chip:  6px;
+  /* Raised surface: a soft step above the grey page, never pure white */
+  --raised:       linear-gradient(180deg, #EAEAEA 0%, #E8E8E8 100%);
+  --raised-solid: #E9E9E9;
+  --shadow-raised:
+    inset 0 1px 0 rgba(255,255,255,.45),      /* faint top light edge */
+    0 0 0 1px rgba(0,0,0,.025),               /* hairline edge */
+    0 1px 2px rgba(0,0,0,.03),
+    0 6px 16px -10px rgba(0,0,0,.08);         /* barely-there lift */
+  /* Recessed wells inside cards */
+  --well:         rgba(0,0,0,.04);
+  --shadow-well:
+    inset 0 1px 1px rgba(0,0,0,.05);
+  /* Small raised chip inside a card */
+  --shadow-chip:
+    0 0 0 1px rgba(0,0,0,.04);
+
+  /* ---------- Shape & motion ---------- */
+  --radius: 0;            /* square, like a printed sheet */
+  --rule-w: 1px;          /* section rule weight */
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+@media (min-width: 720px) {
+  :root { --grid-cols: 6;  --grid-gutter: 20px; --grid-margin: 32px;
+          --rail: 1 / 3; --field: 3 / -1; }
+}
+@media (min-width: 1100px) {
+  :root { --grid-cols: 12; --grid-gutter: 24px; --grid-margin: 48px;
+          --rail: 1 / 4; --field: 4 / -1; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+  max-width: var(--grid-max);
+  margin-inline: auto;
+  padding-inline: var(--grid-margin);
+}
+.rail  { grid-column: var(--rail); }
+.field { grid-column: var(--field); }
