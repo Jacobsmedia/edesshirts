@@ -584,3 +584,5 @@ a { color: var(--ink); }
 .plist { margin: var(--s-4) 0; padding-left: 1.2em; display: grid; gap: var(--s-2); }
 .pv-updated { font-size: var(--fs-detail); color: var(--muted); }
 .footer .legal-link { margin-left: var(--s-3); color: inherit; text-underline-offset: 3px; }
+.footer .brand a { color: inherit; text-decoration: none; }
+.footer .brand a:hover { color: var(--muted); }
